@@ -1,22 +1,17 @@
-
 import Form from './components/Form'
 
-
 export default async function Home() {
-
-
-
   return (
-    <main className='flex min-h-screen flex-col items-center '>
-      <h1 className='text-6xl font-bold text-gray-800'>
-        Liminal Space Generator
-      </h1>
-      <div className='flex flex-col items-center'>
-        <p className='text-2xl font-bold text-gray-800'>Coming Soon</p>
-      </div>
-
-      <div>
-        <Form />
+    <main >
+      <div className='imagen h-screen'>
+        <div className=' flex flex-col items-center justify-center h-full'>
+          <div className='container mx-auto w-2/6 '>
+            <h1 className='text-4xl font-bold text-center text-white'>
+              Liminal Spaces Images Generator
+            </h1>
+            <Form />
+          </div>
+        </div>
       </div>
     </main>
   )
