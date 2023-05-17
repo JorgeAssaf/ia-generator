@@ -9,6 +9,7 @@ const Form = () => {
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!ref.current?.value.trim()) return
     try {
       setLoading(true)
       const timestamp = Date.now()
@@ -61,7 +62,9 @@ const Form = () => {
           </div>
         ) : (
           image && (
-            <Image src={image} width={500} height={500} alt='Limnal Image' />
+
+            <Image className='w-full mx-auto' src={image} width={300} height={500} alt='Limnal Image' />
+
           )
         )}
       </div>
