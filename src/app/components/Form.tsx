@@ -78,7 +78,7 @@ const Form = () => {
             href={image}
             download
           >
-            Descargar
+            Download
           </a>
         )}
       </div>
