@@ -5,8 +5,8 @@ export default async function Home() {
     <main >
       <div className='imagen h-screen'>
         <div className=' flex flex-col items-center justify-center h-full'>
-          <div className='container mx-auto w-2/6 '>
-            <h1 className='text-4xl font-bold text-center text-white'>
+          <div className='container mx-auto md:w-2/6 w-11/12 '>
+            <h1 className='md:text-4xl text-3xl font-bold text-center text-white'>
               Liminal Spaces Images Generator
             </h1>
             <Form />

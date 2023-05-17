@@ -39,7 +39,7 @@ const Form = () => {
 
   return (
     <form className='mt-10 text-white' onSubmit={(e) => handleGenerate(e)}>
-      <label htmlFor='name'>Prompt: <span>Ej. School, Hospital, Garden, SuperMarket</span></label>
+      <label className='font-semibold' htmlFor='name'>Prompt: <span className='font-medium'>Ej. School, Hospital, Garden, SuperMarket</span></label>
 
       <input type='text' id='name' name='name' ref={ref}
         className='border-2 text-black my-2 border-gray-300 rounded-lg p-2 mb-4 w-full'
@@ -55,7 +55,7 @@ const Form = () => {
         }
       </div>
       <div className='flex mt-5 justify-center gap-5 '>
-        <button className=" py-2 bg-neutral-700 px-6 rounded-lg shadow-lg">{!image ? 'Generate Image' : 'Other Image'}</button>
+        <button className=" py-2 bg-neutral-700 px-4 md:px-6 rounded-lg shadow-lg">{!image ? 'Generate Image' : 'Other Image'}</button>
         {
           image && <a
             className=" bg-neutral-700 py-2 px-6 rounded-lg shadow-lg"
