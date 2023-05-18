@@ -23,7 +23,7 @@ const Form = () => {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
           },
           body: JSON.stringify({
-            inputs: `mdjrny-v4 A space of a lonely ${ref.current?.value.trim().toLowerCase()} with a neat floor very clean, scary atmosphere, real life, realistic, global illumination, 8k, soft ligh, unreal engine 5, sharp focus, image saturate, retro photo, very creepe, highly detailed, careful details, empty feelings, void, photography, Canon EOS, cinematic postprocessing, ray tracing,on cg society, hypermodernism, rendered in unreal engine, liminal space "${timestamp}"`,
+            inputs: `mdjrny-v4 A space of a lonely ${ref.current?.value.trim().toLowerCase()} with a neat floor very clean, scary atmosphere, real life, realistic, global illumination, 8k, soft ligh, unreal engine 5, sharp focus, image saturate, retro photo, very creepe, highly detailed, careful details, empty feelings, void, photography, Canon EOS, cinematic postprocessing, ray tracing, on cg society, rendered in unreal engine, liminal space "${timestamp}"`,
           }),
         }
       )
