@@ -1,5 +1,6 @@
 import './globals.css'
 import { Poppins } from 'next/font/google'
+import Footer from './ui/componets/Footer'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -7,8 +8,12 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: 'Liminal Spaces Images Generator',
-  description: 'Liminal Spaces Images Generator with models/SG161222/Realistic_Vision_V1.4',
+  title: 'Liminal Space Image Generator',
+  applicationName: 'Ia Generator',
+  keywords: ['Next.js', 'React', 'TypeScript', 'Ia'],
+  authors: [{ name: 'Jorge Assaf', url: 'https://assafdev.xyz' }],
+  creator: 'Jorge Assaf',
+  description: ' Liminal Space Images',
 }
 
 export default function RootLayout({
@@ -18,7 +23,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" >
-      <body className={poppins.className}>{children}</body>
+      <body className={`${poppins.className} imagen h-screen grid place-content-center overflow-hidden`}>{children}<Footer /></body>
+
     </html>
   )
 }
