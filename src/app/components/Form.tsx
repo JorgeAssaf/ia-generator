@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 
 const Form = () => {
   const [image, setImage] = useState<string>('')
+  const [error, setError] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   const ref = useRef<HTMLInputElement>(null)
 
@@ -27,13 +28,21 @@ const Form = () => {
         }
       )
 
+      setError(false)
+      if (res.status !== 200) {
+        setLoading(false)
+        setError(true)
+        return
+      }
+
       const data = await res.blob()
       const url = URL.createObjectURL(data)
 
-      setImage(url)
       setLoading(false)
+      setImage(url)
+
       return url
-    } catch (error) { }
+    } catch (e) { }
   }
 
   return (
@@ -60,11 +69,20 @@ const Form = () => {
             <div className='dot-wave__dot'></div>
             <div className='dot-wave__dot'></div>
           </div>
+        ) : error ? (
+          <div className='text-center text-red-500 font-semibold'>
+            <p>Something went wrong</p>
+            <p>Try again later</p>
+          </div>
         ) : (
           image && (
-
-            <Image className='w-full mx-auto' src={image} width={300} height={500} alt='Limnal Image' />
-
+            <Image
+              src={image}
+              width={300}
+              height={500}
+              className='w-full'
+              alt='Liminal Space Image'
+            />
           )
         )}
       </div>
@@ -72,15 +90,17 @@ const Form = () => {
         <button className=' py-2 bg-neutral-700 px-4 md:px-6 rounded-lg shadow-lg'>
           {!image ? 'Generate Image' : 'Other Image'}
         </button>
-        {image && (
-          <a
-            className=' bg-neutral-700 py-2 px-6 rounded-lg shadow-lg'
-            href={image}
-            download
-          >
-            Download
-          </a>
-        )}
+        {error
+          ? null
+          : image && (
+            <a
+              className=' bg-neutral-700 py-2 px-6 rounded-lg shadow-lg'
+              href={image}
+              download
+            >
+              Download
+            </a>
+          )}
       </div>
     </form>
   )
