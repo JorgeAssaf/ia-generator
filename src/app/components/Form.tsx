@@ -23,7 +23,7 @@ const Form = () => {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
           },
           body: JSON.stringify({
-            inputs: `mdjrny-v4 A space of a lonely ${ref.current?.value.trim()} with a neat floor very clean, scary atmosphere, real life,realistic, global illumination, 4k, soft ligh, unreal engine 5, sharp focus, image saturate, retro photo, very creepe, highly detailed, careful details, empty feelings, void, photography, Canon EOS, cinematic postprocessing, ray tracing "${timestamp}"`,
+            inputs: `mdjrny-v4 A space of a lonely ${ref.current?.value.trim().toLowerCase()} with a neat floor very clean, scary atmosphere, real life, realistic, global illumination, 8k, soft ligh, unreal engine 5, sharp focus, image saturate, retro photo, very creepe, highly detailed, careful details, empty feelings, void, photography, Canon EOS, cinematic postprocessing, ray tracing,on cg society, hypermodernism, rendered in unreal engine, liminal space "${timestamp}"`,
           }),
         }
       )
@@ -37,12 +37,12 @@ const Form = () => {
 
       const data = await res.blob()
       const url = URL.createObjectURL(data)
-
-      setLoading(false)
       setImage(url)
-
+      setLoading(false)
       return url
-    } catch (e) { }
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
@@ -87,7 +87,7 @@ const Form = () => {
         )}
       </div>
       <div className='flex mt-5 justify-center gap-5 '>
-        <button className=' py-2 bg-neutral-700 px-4 md:px-6 rounded-lg shadow-lg'>
+        <button className=' disabled:text-neutral-400/40 py-2 bg-neutral-700 px-4 md:px-6 rounded-lg shadow-lg'>
           {!image ? 'Generate Image' : 'Other Image'}
         </button>
         {error
