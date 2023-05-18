@@ -22,9 +22,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" >
-      <body className={`${poppins.className} imagen h-screen grid place-content-center overflow-hidden`}>{children}<Footer /></body>
-
+    <html lang='en'>
+      <body
+        className={`${poppins.className} imagen h-screen grid place-content-center overflow-hidden`}
+      >
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
