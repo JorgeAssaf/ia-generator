@@ -4,6 +4,7 @@ import Footer from './ui/componets/Footer'
 
 const poppins = Poppins({
   subsets: ['latin'],
+  preload: true,
   weight: ['400', '700'],
 })
 
@@ -13,7 +14,8 @@ export const metadata = {
   keywords: ['Next.js', 'React', 'TypeScript', 'Ia'],
   authors: [{ name: 'Jorge Assaf', url: 'https://assafdev.xyz' }],
   creator: 'Jorge Assaf',
-  description: ' Liminal Space Images',
+  description: 'Liminal Space Images Generator',
+  siteUrl: 'https://liminal-space.vercel.app/',
 }
 
 export default function RootLayout({
@@ -24,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${poppins.className} imagen h-screen grid place-content-center overflow-hidden`}
+        className={`${poppins.className} imagen  min-h-screen grid place-content-center `}
       >
         {children}
         <Footer />
