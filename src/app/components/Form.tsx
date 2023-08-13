@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import { useState, useRef } from 'react'
-
 const Form = () => {
   const [image, setImage] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
@@ -15,19 +14,19 @@ const Form = () => {
       setLoading(true)
       const timestamp = Date.now()
       const res = await fetch(
-        'https://api-inference.huggingface.co/models/SG161222/Realistic_Vision_V1.4',
+        'https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2-1',
         {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
           },
           body: JSON.stringify({
-            inputs: `mdjrny-v4 A space of a lonely ${ref.current?.value.trim().toLowerCase()} with a neat floor very clean, scary atmosphere, real life, realistic, global illumination, 8k, soft ligh, unreal engine 5, sharp focus, image saturate, retro photo, very creepe, highly detailed, careful details, empty feelings, void, photography, blurry, nostalgic  , Canon EOS, cinematic postprocessing, ray tracing "${timestamp}"`,
+            inputs: `mdjrny-v4 A space of a lonely ${ref.current?.value
+              .trim()
+              .toLowerCase()} with a neat floor very clean, scary atmosphere, real life, realistic, global illumination, 8k, soft ligh, unreal engine 5, sharp focus, image saturate, retro photo, very creepe, highly detailed, careful details, empty feelings, void, photography, blurry, nostalgic  , Canon EOS, cinematic postprocessing, ray tracing "${timestamp}"`,
           }),
-        }
+        },
       )
-
 
       if (res.status !== 200) {
         setLoading(false)
@@ -80,7 +79,7 @@ const Form = () => {
               src={image}
               width={300}
               height={500}
-              className='w-full'
+              className='w-full h-[500px] rounded-lg shadow-lg'
               alt='Liminal Space Image'
             />
           )
